@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500;600;700&display=swap');
+
+* {
+    margin     : 0;
+    padding    : 0;
+    box-sizing : border-box;
+    font-family: 'DynaPuff', cursive;
+
+}
+
+body {
+    min-height      : 100vh;
+    background-color: #eee;
+    display         : flex;
+    justify-content : center;
+    overflow        : hidden;
+    padding         : 2rem;
+}
+
+.flag__wrapper {
+    position: relative;
+    top     : 60px;
+    left    : 20px;
+}
+
+.flag {
+    width     : 35vw;
+    min-width : 340px;
+    min-height: 40vh;
+    position  : relative;
+    display   : flex;
+    cursor    : pointer;
+    overflow  : hidden;
+}
+
+.flag::before {
+    content         : "";
+    position        : absolute;
+    width           : 200px;
+    height          : 650px;
+    background-color: rgba(255, 255, 255, 0.1);
+    top             : -190px;
+    left            : -400px;
+    z-index         : 1;
+    transform       : rotate(25deg);
+    transition      : all .6s;
+}
+
+.flag:hover::before {
+    left: 700px;
+}
+
+
+.flag .flag__white {
+
+    width           : 30%;
+    background-color: #fff;
+    position        : relative;
+    overflow        : hidden;
+
+}
+
+.flag .flag__green {
+    width           : 70%;
+    background-color: green;
+    position        : relative;
+}
+
+.flag .flag__green::before {
+    content         : "";
+    position        : absolute;
+    width           : 150px;
+    height          : 150px;
+    border-radius   : 50%;
+    background-color: transparent;
+    top             : 50%;
+    left            : 25%;
+    transform       : translateY(-50%);
+    box-shadow      : inset 15px -15px 0 5px #fff;
+}
+
+.flag .flag__green::after {
+    content         : "";
+    position        : absolute;
+    width           : 70px;
+    height          : 70px;
+    background-color: #fff;
+    top             : 27%;
+    left            : 45%;
+    clip-path       : polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.flag__stand {
+    width           : 15px;
+    height          : 85vh;
+    background-color: green;
+    animation       : blink 5s linear infinite;
+    position        : absolute;
+    left            : -15px;
+    top             : -20px;
+}
+
+.flag__stand::before {
+    content         : "";
+    position        : absolute;
+    width           : 30px;
+    height          : 20px;
+    border-radius   : 50% 50% 30% 30%;
+    background-color: green;
+    animation       : blink 5s linear infinite;
+    top             : -20px;
+    left            : -7px;
+}
+
+.flag__stand .stand__base {
+    position        : absolute;
+    bottom          : 0;
+    left            : -40px;
+    width           : 100px;
+    height          : 15px;
+    background-color: green;
+    animation       : blink 5s linear infinite;
+
+}
+
+.flag__stand .stand__base::before {
+    content         : "";
+    position        : absolute;
+    top             : -10px;
+    left            : 50%;
+    transform       : translateX(-50%);
+    width           : 75px;
+    height          : 10px;
+    background-color: green;
+    animation       : blink 5s linear infinite;
+}
+
+.flag__stand .stand__base::after {
+    content         : "";
+    position        : absolute;
+    top             : -20px;
+    left            : 50%;
+    transform       : translateX(-50%);
+    width           : 50px;
+    height          : 10px;
+    background-color: green;
+    animation       : blink 5s linear infinite;
+}
+
+.content {
+    margin-top : 2rem;
+    margin-left: 2rem;
+}
+
+h1 {
+    font-size     : 6vmin;
+    color         : green;
+    text-transform: capitalize;
+    font-weight   : 500;
+    animation     : blink 5s linear infinite;
+    position      : relative;
+}
+
+h1 span {
+    /* top                      : 40px; */
+    position                 : relative;
+    opacity                  : 0;
+    animation-name           : text;
+    animation-timing-function: linear;
+    animation-duration       : .15s;
+    animation-delay          : calc(.15s * var(--i));
+    animation-fill-mode      : forwards;
+    transform                : scale(5);
+    letter-spacing: -5px;
+}
+
+@keyframes text {
+    0% {
+        top    : -40px;
+        opacity: 0;
+        filter : hue-rotate(0deg);
+    }
+
+    100% {
+        top    : 1s0px;
+        opacity: 1;
+        filter : hue-rotate(360deg)
+    }
+}
+
+
+
+
+@keyframes blink {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg)
+    }
+}
+
+h1::selection {
+    background-color: green;
+    color           : #fff;
+}
+
+h1 span::selection {
+    background-color: green;
+    color           : #fff;
+}
+
+h1:nth-child(2) {
+    font-size: 8vmin;
+}
+
+
+
+
+
+
+
+@media (max-width:1280px) {
+    .flag {
+        width: 50vw;
+    }
+}
+
+@media (max-width:900px) {
+    .flag {
+        width: 85vw;
+    }
+}
